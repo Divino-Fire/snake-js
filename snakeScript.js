@@ -20,6 +20,24 @@ var ctx = canvas.getContext('2d');
 // create the game unit 
 const box = 32; 
 
+//player class
+
+//setting player class
+class Player{
+    constructor(name, score){
+        this.name = name;
+        this.score = score;
+    }
+    
+    getplayerinfo(){
+        return `${this.name} has a score of ${this.score}`;
+
+    }
+
+}
+
+
+
 //setting framerate: the number of times per milli sec in which the game updates it's content
 let pauseState = false;
  var framerate = 250;
@@ -99,19 +117,6 @@ var levelBoundary =20;
 // taking note of game over state 
 let isGameOver = false;
 
-//setting player class
-class Player{
-    constructor(name, score){
-        this.name = name;
-        this.score = score;
-    }
-    
-    getplayerinfo(){
-        return `${this.name} has a score of ${this.score}`;
-
-    }
-
-}
 
 // function to change the colour of a particular image
 
@@ -233,7 +238,7 @@ function playerLevel(score){
 }
 
 // loading player level
-plevel = load(currentPlayer);
+plevel = load(currentPlayer)
 playerLevel(plevel);
 
 
@@ -264,11 +269,12 @@ for(let i = 0; i<cscore.length; i++){
  
   
  
- document.addEventListener("keydown",direction); 
-
+ //document.addEventListener("keydown",direction); 
+ canvas.addEventListener("keydown",direction); 
+let d;
  function direction(whatWasPressed){ 
       let key = whatWasPressed.keyCode;
-      callPause(); 
+      callPause(key); 
      if( key == 37 && d != "RIGHT"){ 
          left.play(); 
          d = "LEFT"; 
@@ -430,7 +436,7 @@ for(let i = 0; i<cscore.length; i++){
 
 // continue game after game is paused
 
-function callPause(){
+function callPause(key){
     
  if (key == 32){
      

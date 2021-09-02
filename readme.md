@@ -1,4 +1,4 @@
-This is a snake game made with javascripts
-it's made for pb laptops
+# snake game made with javascript
 
-original idea taken from the youtube channel learnwebdevelopment
+
+original idea was taken from the youtube channel learnwebdevelopment
